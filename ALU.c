@@ -1,7 +1,7 @@
 /*
-Authors: Skyler Jason P. Banzon & Franz Ivan D. Omega
+Authors:
 Title: Lab Exercise 1: The ALU with Booth's Algorithm
-Date: February 18,2025
+Date:
 */
 
 #include <stdio.h>
@@ -22,39 +22,41 @@ void printBin(int num, unsigned char bits)
     }
 }
 
-//apply twos complement on given number
 unsigned char twosComp(unsigned data){
 	return  ~(data) + 1;
 }
 
 // Function to set flags based on the result
-void setFlags(unsigned int ACC){ 
-    if(ACC==0x0000){                // ZF = 1 if ACC = 0
-        ZF = 1;
-    } else ZF = 0;
-    
-    
-    if((ACC & 0x0080)==0x0080){     // SF = 1 if ACC is negative
-        SF = 1;
-    }  else SF = 0;
-    
+void setFlags(unsigned int ACC){
+	if(ACC == 0x0000){
+		ZF = 1;
+	}
+	
+	if((ACC & 0x0080) == 0x0080){
+		SF = 1;
+	}
+	
+	if(ACC > 0x7F){
+		OF = 1;
+		if (ACC > 0xFF){
+			CF = 1;
+		} 
+	}
+	return;
+}	
 
-    if(ACC > 0x7F){        // OF = 1 if ACC = 01111111
-        OF = 1;
-    } else OF = 0;
-    
-    if(ACC > 0xFF){         // CF = 1 if ACC > 11111111
-        CF = 1;
-    } else CF = 0;
-    
-}
 
 
 // ALU function to perform operations
 int ALU(int op1, int op2, unsigned char control)
 {
+    // Reset Flags
+	CF = 0;
+	SF = 0;
+	ZF = 0;
+	OF = 0;
 
-    signed short ACC = 0x00; // Accumulator
+    signed short ACC = 0x00; // Reset Accumulator
 
     signed char tempOp1 = 0x00;
     signed char tempOp2 = 0x00;
