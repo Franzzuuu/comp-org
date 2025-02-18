@@ -1,5 +1,5 @@
 /*
-Authors: Skyler Jason P. Banzon
+Authors: Skyler Jason P. Banzon & Franz Ivan D. Omega
 Title: Lab Exercise 1: The ALU with Booth's Algorithm
 Date: Feb. 18, 2025
 */
