@@ -1,7 +1,7 @@
 /*
-Authors:
+Authors: Skyler Jason P. Banzon
 Title: Lab Exercise 1: The ALU with Booth's Algorithm
-Date:
+Date: Feb. 18, 2025
 */
 
 #include <stdio.h>
