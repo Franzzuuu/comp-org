@@ -16,6 +16,7 @@ int CU(void)
 
     while (1)
     {
+        printf("Initializing Main Memory...\n");
         printf("\n==============================\n");
         printf("PC : 0x%03X\n", PC);
 
