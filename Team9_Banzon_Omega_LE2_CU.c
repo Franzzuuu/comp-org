@@ -1,6 +1,7 @@
 /*
     Banzon, Skyler Jason P.
     Omega, Franz Ivan D.
+    March 3, 2025
 */
 
 #include <stdio.h>
