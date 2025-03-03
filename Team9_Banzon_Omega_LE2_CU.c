@@ -13,10 +13,10 @@ int CU(void)
 {
     unsigned int PC = 0x000, IR, MAR, IOAR, inst_code, operand;
     unsigned char MBR = 0, IOBR = 0;
-
+    printf("Initializing Main Memory...");
     while (1)
     {
-        printf("Initializing Main Memory...\n");
+        
         printf("\n==============================\n");
         printf("PC : 0x%03X\n", PC);
 
