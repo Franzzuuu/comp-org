@@ -90,7 +90,7 @@ int CU(void)
     }
 }
 
-// inputs smth
+// inputs
 void initMemory(void)
 {
     dataMemory[0x000] = 0x30;
@@ -109,7 +109,7 @@ void initMemory(void)
     dataMemory[0x12F] = 0x00;
 }
 
-// pangcheck if sakto yung shets
+// pangcheck if sakto
 int main(void)
 {
     initMemory();
