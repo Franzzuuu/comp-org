@@ -1,6 +1,6 @@
 /*
 Authors: Skyler Jason P. Banzon & Franz Ivan D. Omega
-Title: Lab Exercise 5: The Memory (Integrated with ALU Version 2)
+Title: Lab Exercise 5: The Memory 
 Date: April 21, 2025
 */
 
