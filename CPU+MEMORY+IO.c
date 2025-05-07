@@ -1,7 +1,7 @@
 /*
 Authors: Skyler Jason P. Banzon & Franz Ivan D. Omega
 Title: Lab Exercise 6: Input/Output (Integrated with Memory and ALU)
-Date: April 28, 2025
+Date: May 7, 2025
 */
 
 #include <stdio.h>
