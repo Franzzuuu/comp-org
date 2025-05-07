@@ -639,53 +639,30 @@ unsigned char countdownProgram[] = {
 
 int main()
 {
-    printf("===== I/O MEMORY TESTS =====\n");
+    printf("\n\n===== TESTING I/O MEMORY OPERATIONS =====\n");
 
-    // Initialize I/O memory
-    for (int i = 0; i < 32; i++)
+    // Test Write to I/O (Latch)
+    printf("\n--- Testing Write to I/O Latch ---\n");
+    MAR = 0x001; // I/O address (latch)
+    MBR = 0xCA;  // Data to write
+    CU(WIO);     // Write to I/O
+    printf("Wrote 0xCA to I/O latch at address 0x001\n");
+
+    // Test Read from I/O (Buffer)
+    printf("\n--- Testing Read from I/O Buffer ---\n");
+    MAR = 0x01F; // I/O address (buffer)
+    CU(RIO);     // Read from I/O
+    printf("Read from I/O buffer at address 0x01F: 0x%02X\n", MBR);
+
+    printf("\n\n===== TESTING SEVEN SEGMENT DISPLAY =====\n");
+
+    for (int i = 0; i <= 9; i++)
     {
-        iOData[i] = 0;
+        printf("\n--- Testing Seven Segment Display for digit %d ---\n", i);
+        MAR = 0x000; // Seven segment display address
+        MBR = i;     // Digit to display
+        CU(WIO);     // Write to I/O (Seven Segment)
+        printf("Displayed digit %d on seven segment display\n", i);
     }
-
-    // Test 1: Write to latch and read from buffer
-    printf("\nTest 1: Write to latch and read from buffer\n");
-
-    // Write 0xCA to latch at address 0x001
-    IOM = 0;
-    RW = 1;
-    OE = 1;
-    ADDR = 0x001;
-    BUS = 0xCA;
-    IOMemory();
-    printf("Wrote 0xCA to latch at 0x001\n");
-
-    // Simulate input connectivity
-    InputSim();
-
-    // Read from buffer at address 0x01F
-    IOM = 0;
-    RW = 0;
-    OE = 1;
-    ADDR = 0x01F;
-    IOMemory();
-    printf("Read from buffer at 0x01F: 0x%02X\n", BUS);
-
-    // Test 2: 7-Segment Display
-    printf("\nTest 2: 7-Segment Display\n");
-
-    // Write value 5 to 7-segment display at address 0x000
-    IOM = 0;
-    RW = 1;
-    OE = 1;
-    ADDR = 0x000;
-    BUS = 5;
-    IOMemory();
-
-    // Let's try loading and executing the I/O test program
-    printf("\n\n===== EXECUTING I/O TEST PROGRAM =====\n");
-    loadProgram(0x100, testIO, sizeof(testIO));
-    executeProgram(0x100);
-
-    // We won't actually reach here due to the EOP instruction
     return 0;
 }
