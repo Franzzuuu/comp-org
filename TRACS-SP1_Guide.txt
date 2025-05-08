@@ -1,0 +1,51 @@
+HOW TO USE THE TRACS ASSEMBLER C PROGRAM:
+
+(INPUT) FOR THE ASSEMBLY CODE TO BE PROCESSED BY THE ASSEMBLER:
+
+------	The ASSEMBLY CODE must be saved as a text (.txt) file and placed in the same directory as the C program.
+------	The default filename expected by the program is:
+			"Team9_SP1_TRACS-ASSY-Source.txt"
+------	Alternatively, you can specify a custom input and output filename using the command line:
+			./Team9_SP1_TRACS-ASSY <input_file.txt> <output_file.txt>
+
+OUTPUT:
+
+------	Output is generated only if the program runs successfully.
+------	During execution, the assembler will print the status and any errors to the console.
+------	The assembler performs a line-by-line syntax check. If an error is encountered:
+			- It will be printed to the console.
+			- The assembler will stop processing further lines.
+------	If successful, the machine code will be saved to the specified output file (default: "output.txt").
+
+SYNTAX (Same as TRACS Assembly Language):
+
+For OPCODES requiring OPERAND:
+	OPCODE<space><valid operand>
+
+For OPCODES not requiring OPERAND:
+	OPCODE
+
+For Line Comments:
+	<semicolon ;> line comments
+
+For Preprocessor Directives (limited to ORG only):
+	ORG<space><valid address>
+
+------	All OPCODES and preprocessor directives must be written in ALL CAPITAL LETTERS.
+------	Operands may be:
+			- Hexadecimal: e.g. "0x012" (max 3 hex digits, i.e., up to 0xFFF)
+			- Decimal: e.g. "4095" (max decimal equivalent of 0xFFF)
+			- Labels: e.g. "loop:"
+------	Labels must end in ':' and appear at the beginning of a line or before an instruction.
+------	To add comments, start the comment with a semicolon ';'
+------	ORG directive and program counter must not exceed 0x3FF.
+------	Each instruction is considered to occupy 2 bytes in memory.
+------	Program must include an EOP instruction to mark the end.
+
+SAMPLE USAGE (TERMINAL/COMMAND LINE):
+
+1. Using default filenames:
+	./Team9_SP1_TRACS-ASSY
+
+2. Using custom filenames:
+	./Team9_SP1_TRACS-ASSY mycode.txt myoutput.txt
