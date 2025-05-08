@@ -1,9 +1,10 @@
 /*************************************************************************************************
  *
- * Author: TRACS Assembler Implementation
+ * Author: Skyler Jason P. Banzon & Franz Ivan D. Omega
  * Course: CpE 3202 Computer Organization and Architecture
- * Description: A two-pass assembler for TRACS assembly language
- * Created: May 8, 2025
+ * Schedule: MW 10:30AM - 1:30PM CEAC1
+ * Activity: TRACS Assembler
+ * Created: May 6, 2025
  *
  *************************************************************************************************/
 
