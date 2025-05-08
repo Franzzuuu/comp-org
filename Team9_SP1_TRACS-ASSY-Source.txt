@@ -1,0 +1,22 @@
+ORG 0x000
+start: WB 0x15
+      WM 0x400
+      WB 0x03
+      WM 0x401
+      RM 0x400
+      WACC
+      RM 0x401
+      ADD
+      RACC
+      WM 0x402
+      WB 0x00
+      RM 0x402
+      WACC
+      WB 0x05
+      BRGT here
+      RACC
+      WM 0x403
+here: SHL
+      RACC
+      WM 0x405
+      EOP
